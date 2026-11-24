@@ -1,0 +1,9 @@
+import { AppShell } from "@/components/shell";
+import { guardRole } from "@/server/guard";
+
+export const dynamic = "force-dynamic";
+
+export default async function Layout({ children }: { children: React.ReactNode }) {
+  await guardRole(["CUSTOMER"]);
+  return <AppShell role="CUSTOMER">{children}</AppShell>;
+}

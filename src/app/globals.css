@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 246 244 239;
+  --surface: 255 255 255;
+  --surface-2: 250 248 243;
+  --border: 229 225 214;
+  --ink: 21 33 32;
+  --muted: 104 116 113;
+  --primary: 14 98 92;
+  --primary-fg: 255 255 255;
+  --primary-soft: 222 240 236;
+  --accent: 184 132 40;
+  --accent-soft: 250 239 214;
+  --success: 20 128 88;
+  --success-soft: 217 242 230;
+  --warning: 176 112 20;
+  --warning-soft: 253 238 208;
+  --danger: 190 50 50;
+  --danger-soft: 252 226 224;
+  --info: 42 98 168;
+  --info-soft: 220 234 250;
+  --side: 10 35 35;
+  --side-ink: 234 242 240;
+  --side-muted: 134 163 159;
+  --side-hover: 22 57 56;
+  --shadow: 20 40 38;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --bg: 8 17 17;
+  --surface: 14 27 27;
+  --surface-2: 19 35 35;
+  --border: 35 55 54;
+  --ink: 232 241 238;
+  --muted: 138 160 156;
+  --primary: 56 184 166;
+  --primary-fg: 4 24 22;
+  --primary-soft: 16 54 50;
+  --accent: 224 170 76;
+  --accent-soft: 62 46 18;
+  --success: 64 200 140;
+  --success-soft: 14 52 38;
+  --warning: 232 168 70;
+  --warning-soft: 60 44 14;
+  --danger: 240 100 98;
+  --danger-soft: 62 24 24;
+  --info: 110 168 240;
+  --info-soft: 20 40 68;
+  --side: 6 24 24;
+  --side-ink: 232 241 238;
+  --side-muted: 118 146 142;
+  --side-hover: 18 46 45;
+  --shadow: 0 0 0;
+  color-scheme: dark;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { @apply bg-bg text-ink antialiased font-sans; font-feature-settings: "ss01", "cv11"; }
+::selection { background: rgb(var(--primary) / 0.25); }
+.tabular { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid rgb(var(--primary)); outline-offset: 2px; border-radius: 6px; }
+
+/* thin scrollbars */
+* { scrollbar-width: thin; scrollbar-color: rgb(var(--border)) transparent; }
+
+@layer components {
+  .card { @apply rounded-2xl border border-border bg-surface shadow-card; }
+  .input { @apply w-full rounded-xl border border-border bg-surface px-3.5 py-2.5 text-sm text-ink placeholder:text-muted/70 transition focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 disabled:cursor-not-allowed disabled:bg-surface-2 disabled:opacity-70; }
+  .input-error { @apply border-danger focus:border-danger focus:ring-danger/20; }
+  .label { @apply mb-1.5 block text-[13px] font-medium text-ink/80; }
+  .th { @apply whitespace-nowrap px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-wider text-muted; }
+  .td { @apply px-4 py-3.5 text-sm; }
+}
+
+@media print { aside, header, .no-print { display: none !important; } }
