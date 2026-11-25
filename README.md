@@ -391,8 +391,8 @@ NEXTAUTH_URL=http://localhost:3000
 
 ```bash
 # 1. Clone the repository
-git clone <your-repository-url>
-cd <your-repository-folder>
+git clone https://github.com/Avishek-Pratyay/Advanced-Digital-Banking-Management-System.git
+cd Advanced-Digital-Banking-Management-System
 
 # 2. Install dependencies
 npm install
